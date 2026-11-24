@@ -1,4 +1,4 @@
-# Checkpoint 2: Motor de Ingesta Automatizada y Asíncrona
+# Checkpoint : Motor de Ingesta Automatizada y Asíncrona
 
 Este repositorio contiene el componente base de ingesta de datos desarrollado bajo principios de **Programación Orientada a Objetos (POO)**, programación asíncrona (`asyncio` + `httpx`) y arquitectura desacoplada, preparado para escalar dentro de un entorno de automatización con IA y MLOps.
 
