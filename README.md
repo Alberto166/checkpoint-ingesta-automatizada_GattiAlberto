@@ -4,7 +4,7 @@ Este repositorio contiene el componente base de ingesta de datos desarrollado ba
 
 ## ¿Qué datos descarga el script?
 
-El pipeline consulta de forma concurrente la API pública de **CoinGecko** (`/api/v3/coins/markets`) para obtener métricas de mercado en tiempo real (en USD) de múltiples criptoactivos (`bitcoin`, `ethereum`, `solana`, `cardano`, `ripple`), incluyendo:
+El pipeline consulta de forma concurrente la API pública de [CoinGecko](https://www.coingecko.com/) (`/api/v3/coins/markets`) para obtener métricas de mercado en tiempo real (en USD) de múltiples criptoactivos (`bitcoin`, `ethereum`, `solana`, `cardano`, `ripple`), incluyendo:
 - Identificador, símbolo y nombre del activo.
 - Precio actual en USD (`current_price_usd`).
 - Capitalización de mercado (`market_cap_usd`) y volumen en 24h (`total_volume_24h`).
@@ -44,7 +44,7 @@ ai-automation-project/
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <URL_DE_TU_REPOSITORIO>
+   git clone <https://github.com/Alberto166/checkpoint-ingesta-automatizada_GattiAlberto>
    cd ai-automation-project
    ```
 
@@ -65,6 +65,21 @@ ai-automation-project/
    cp .env.example .env
    ```
 
+### Cambios de Entorno y Dependencias (Módulo 2)
+Respecto a la configuración base del Módulo 1, se incorporaron al archivo `requirements.txt` (y al contenedor Docker) las librerías `httpx` (cliente HTTP asíncrono) y `pandas` (estructuración y exportación de datos tabulares).
+
+### Variables de Entorno (`.env.example`)
+El proyecto requiere las siguientes variables de configuración:
+```env
+OPENAI_API_KEY=tu_api_key_aqui
+MLFLOW_TRACKING_URI=http://localhost:5000
+DATABASE_URL=tu_url_aqui
+
+API_BASE_URL=https://api.coingecko.com/api/v3
+API_KEY=opcional_para_coingecko_demo
+REQUEST_TIMEOUT=10.0
+```
+
 ## Ejecución
 
 Desde la carpeta raíz del proyecto, ejecutá el orquestador como módulo de Python:
@@ -76,3 +91,4 @@ python -m src.main
 Al finalizar, podrás verificar:
 - Los registros detallados en consola y en `logs/ingestion.log`.
 - El archivo CSV resultante dentro de la carpeta `data/`.
+
