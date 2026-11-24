@@ -22,6 +22,7 @@ class CryptoAPIClient:
         self._client = httpx.AsyncClient(
             base_url=self.base_url,
             timeout=httpx.Timeout(self.timeout),
+            follow_redirects=True,
             headers={"Accept": "application/json", "User-Agent": "AI-Automation-Ingestor/1.0"},
         )
         return self
