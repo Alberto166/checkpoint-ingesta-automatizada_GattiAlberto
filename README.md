@@ -92,3 +92,8 @@ Al finalizar, podrás verificar:
 - Los registros detallados en consola y en `logs/ingestion.log`.
 - El archivo CSV resultante dentro de la carpeta `data/`.
 
+### Ejecutar Tests Automatizados
+Para correr la suite de pruebas unitarias (con simulación de respuestas HTTP y timeouts):
+```bash
+pytest -v
+```
